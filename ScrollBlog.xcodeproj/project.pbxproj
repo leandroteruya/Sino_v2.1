@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0EA60C7317605C4A00420DCD /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA60C7217605C4A00420DCD /* libGoogleAdMobAds.a */; };
-		9CBDE1C117C63F1E008CC486 /* iPhoneLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBDE1C017C63F1E008CC486 /* iPhoneLoginController.xib */; };
 		9CBEFD8A17CBB91700BB4198 /* btn_padrao.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBEFD8917CBB91700BB4198 /* btn_padrao.png */; };
 		9CD73C1217D4C86200A7238A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD73C1117D4C86200A7238A /* ViewController.m */; };
 		9CD73C1417D4C8F500A7238A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD73C1317D4C8F500A7238A /* AppDelegate.m */; };
@@ -156,6 +155,7 @@
 		9FE7F45E16B314A100985775 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45C16B314A100985775 /* logo@2x.png */; };
 		9FE7F45F16B314A100985775 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45D16B314A100985775 /* logo.png */; };
 		B56F93FA17C6362A0084B31F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B56F93F917C6362A0084B31F /* libsqlite3.0.dylib */; };
+		B5E1563217D4F1E1001BB8BF /* iPhoneLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,7 +169,6 @@
 		0EA60C7017605C4A00420DCD /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
 		0EA60C7117605C4A00420DCD /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		0EA60C7217605C4A00420DCD /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		9CBDE1C017C63F1E008CC486 /* iPhoneLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = iPhoneLoginController.xib; path = ../../Sino_v2.0/ScrollBlog/iPhoneLoginController.xib; sourceTree = "<group>"; };
 		9CBEFD8917CBB91700BB4198 /* btn_padrao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_padrao.png; sourceTree = "<group>"; };
 		9CBEFD8B17CBCBA800BB4198 /* selectbox */ = {isa = PBXFileReference; lastKnownFileType = file; path = selectbox; sourceTree = "<group>"; };
 		9CD73C1117D4C86200A7238A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -404,6 +403,7 @@
 		9FE7F45C16B314A100985775 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		9FE7F45D16B314A100985775 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B56F93F917C6362A0084B31F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPhoneLoginController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -921,7 +921,7 @@
 				9F22341E16935009007A562C /* iPhoneWebView.m */,
 				9F2234141692EA0A007A562C /* iPhoneLoginController.h */,
 				9F2234151692EA0A007A562C /* iPhoneLoginController.m */,
-				9CBDE1C017C63F1E008CC486 /* iPhoneLoginController.xib */,
+				B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */,
 				9FBDD25116A5847F00A28629 /* MapViewController.h */,
 				9FBDD25216A5847F00A28629 /* MapViewController.m */,
 				9FBDD25316A5847F00A28629 /* MapViewController.xib */,
@@ -1100,9 +1100,9 @@
 				9FB7AC5816B4729F00434F57 /* 114x114.png in Resources */,
 				9FBBC45516EC934100C2EBAF /* NoConnectivityViewController.xib in Resources */,
 				9FBBC45716EC938C00C2EBAF /* coution.png in Resources */,
-				9CBDE1C117C63F1E008CC486 /* iPhoneLoginController.xib in Resources */,
 				9CDDF16417C7910E00DB80CA /* btn_calendario.png in Resources */,
 				9CBEFD8A17CBB91700BB4198 /* btn_padrao.png in Resources */,
+				B5E1563217D4F1E1001BB8BF /* iPhoneLoginController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
