@@ -14,6 +14,7 @@
 @implementation iPhoneCommentPostController
 
 @synthesize name,password,editedFieldKey, saveInfo;
+//@synthesize lembrarSenha;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,17 +67,36 @@
     
 }
 
-- (IBAction)lembrarSenha:(id)sender {
+
+/*- (IBAction)lembraSenhaAction:(id)sender {
+    NSLog(@"TESTE");
     
-    //[self.lembrarSenha setOn:NO];
-    if([lembrarSenha isOn]){
-        NSLog(@"Switch is ON");
-    } else{
-        NSLog(@"Switch is OFF");
+    /*if(lembrarSenha.on){
+        
+        // if lights are on
+        [onOffLabel setText:@"Lights Currently On"];
+        onOffLabel.textColor = [UIColor blackColor];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:219.0/255.0 blue:52.0/255.0 alpha:1.0];
+        
     }
     
-}
+    else {
+        
+        // If lights are off
+        [onOffLabel setText:@"Lights Currently Off"];
+        onOffLabel.textColor = [UIColor whiteColor];
+        
+        self.view.backgroundColor = [UIColor blackColor];
+     
+    }
+    
+}*/
 
+- (IBAction)LembraSenhaAction:(id)sender {
+    
+     NSLog(@"TESTE");
+}
 
 -(void)backBtnAction{
     [self dismissModalViewControllerAnimated:YES];
@@ -94,12 +114,7 @@
         
         if([saveInfo.currentTitle isEqual: @"Sair"])
         {
-            
-            if([lembrarSenha isOn]){
-                NSLog(@"Switch is ON");
-            } else{
-                NSLog(@"Switch is OFF");
-            }
+ 
             
             name.text = @"";
             password.text = @"";

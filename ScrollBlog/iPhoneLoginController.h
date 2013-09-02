@@ -9,9 +9,8 @@
     UIBarButtonItem *postBtn;
     NSMutableArray *tempStringArray;
     sqlite3 *db;
-    UISwitch *lembrarSenha;
-    
-    
+    IBOutlet UILabel *onOffLabel;
+    IBOutlet UISwitch *lembrarSenha;
 }
 //- (NSMutableArray *) getMyWines;
 
@@ -26,7 +25,7 @@
 
 //-(void)getSaveArray;
 -(IBAction)save:(id)sender;
--(IBAction)lembrarSenha:(id)sender;
+-(IBAction)LembraSenhaAction:(id)sender;
 /*-(IBAction)subscribe:(id)sender;
 -(IBAction)removeAds:(id)sender;
 -(IBAction)restoreBtn:(id)sender;*/
