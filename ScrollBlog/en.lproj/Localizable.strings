@@ -1,0 +1,111 @@
+//You can change your language here
+
+//init
+"background_images" = "background.png"; //Effect in home, fullstory and settings only
+
+//Home Screen
+"home_title" = "Home";
+"loading" = "Loading";
+"Please_wait" = "Please Wait";
+
+"home_load_more" = "Load More";
+"home_release" = "Release to refresh";
+"home_pull" = "Pull to refresh";
+
+//Left Screen
+"home_btn" = "Home";
+"classificacao_btn" = "Classificações";
+"filtro_btn" = "Filtro";
+"developers_btn" = "Developers";
+"home_btn_icon" = "homeicon.png";
+"home_no_icon_placeholder_icon" = "no_icon.png";
+
+"back_btn" = "Back";
+"search_placeholder" = "Search";
+
+
+//Fullstory
+"fullstory_comments" = "Comments";
+"fullstory_share" = "Share";
+
+"fullstory_comment_placeholder" = "Write your comment";
+"fullstory_comment_post_btn" = "Post";
+
+"fullstory_actionsheet_title" = "Share";
+"fullstory_actionsheet_cancel_btn" = "Cancel";
+"fullstory_actionsheet_facebook_btn" = "Facebook";
+"fullstory_actionsheet_twitter_btn" = "Twitter";
+"fullstory_actionsheet_email_btn" = "Email";
+"fullstory_actionsheet_openinsafari_btn" = "Open in Safari";
+
+//Push Notifications
+"apns_title" = "Notifications";
+"apns_close_btn" = "Close";
+"apns_action_btn" = "View";
+
+//Settings Screen
+"settings_title" = "Settings";
+"settings_name_placeholder" = "Name";
+"settings_email_placeholder" = "Email";
+"settings_website_placeholder" = "Website [Optional]";
+"settings_remove_ads" = "Remove ads for $0.99";
+"settings_subscribe_btn" = "Subscribe - Push Notification";
+"settings_save_btn" = "Save Infomation";
+"settings_restore_btn" = "Restore Purchased";
+"settings_back_btn" = "Back";
+
+//In App Purchased
+"inapppurchase_success_title" = "Successful";
+"inapppurchase_success_detail" = "Your purchased is successful";
+"inapppurchase_success_btn" = "Ok";
+
+"inapppurchase_disable_title" = "Disable";
+"inapppurchase_disable_detail" = "Your purchase was disable. Please activate in setting";
+"inapppurchase_disable_btn" = "Ok";
+
+"inapppurchase_connection_title" = "Failed";
+"inapppurchase_connection_detail" = "Failed to connect with AppStore";
+"inapppurchase_connection_btn" = "Ok";
+
+"inapppurchase_failed_transaction_title" = "Failed";
+"inapppurchase_failed_transaction_detail" = "Transaction Failed";
+"inapppurchase_failed_transaction_btn" = "Ok";
+
+"inapppurchase_failed_receipt_title" = "Failed";
+"inapppurchase_failed_receipt_detail" = "We cannot verify your purchase receipt. Maybe you were using jailbroken in app purchase. If you already purchased, try to restore it.";
+"inapppurchase_failed_receipt_btn" = "Ok";
+
+//In App WebView
+"inappwebview_safari_button" = "Use Safari";
+"inappwebview_loading" = "Loading";
+"inappwebview_done" = "Done";
+
+//Contact Us Template
+"contactus_template_emailNow_btn" = "Email Us";
+"contactus_template_callNow_btn" = "Call Us";
+
+//Map
+"map_segment_1" = "All";
+"map_segment_2" = "Find Near Me";
+
+"map_actionsheet_title" = "Open Using";
+"map_actionsheet_cancel_btn" = "Cancel";
+"map_actionsheet_apple_btn" = "Apple Map";
+"map_actionsheet_google_btn" = "Google Map";
+"map_actionsheet_waze_btn" = "Waze";
+
+"map_actionsheet_findnearme_title" = "Find in";
+"map_actionsheet_findnearme_cancel_btn" = "Cancel";
+"map_actionsheet_findnearme_100km" = "100 KM";
+"map_actionsheet_findnearme_50km" = "50 KM";
+"map_actionsheet_findnearme_25km" = "25 KM";
+
+
+//No Internet Connectivity
+"no_internet_desc" = "No internet Connectivity";
+"no_internet_btn" = "Try Again";
+"no_internet_alert_title" = "Notification";
+"no_internet_alert_desc" = "No internet Connectivity";
+"no_internet_alert_btn" = "Ok";
+
+
