@@ -470,8 +470,10 @@ static NSString *url = @"http://scrollblog.practison.com";
     //data.put("acesso", "classificacao");
 	//data.put("userUid_pessoa", SinoConstants.uid_pessoa);//uid_pessoa->583  // 806
     
-    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"classificacao",@"806"];
+    //NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"classificacao",@"806"];
+    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"seleciona_clipping_classificacao",@"806"];
     //NSString *post =[[NSString alloc] initWithFormat:@"nome=%@&password=%@&tag=login",@"edenred_dea",@"edenred_dea"];
+    
 
     NSLog(@"PostData: %@",post);
     

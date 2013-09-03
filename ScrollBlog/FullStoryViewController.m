@@ -1,7 +1,7 @@
 
 
 #import "FullStoryViewController.h"
-#import "iPhoneLoginController.h"
+//#import "iPhoneLoginController.h"
 #import "iPhoneWebView.h"
 @interface FullStoryViewController ()
 
@@ -26,48 +26,50 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification 
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
     
-   tempWebView = [[UIWebView alloc] init];
+    tempWebView = [[UIWebView alloc] init];
     
     pUrl = [array objectAtIndex:7];
     
-   // tempWebView.delegate = self;
+    // tempWebView.delegate = self;
     [[AppDelegate instance] setCurrentPostID:[array objectAtIndex:5]];
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     tempWebView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: NSLocalizedString(@"background_images", nil)]];
     tempWebView.delegate = self;
-   
+    
     
     gallery = [[array objectAtIndex:8] objectAtIndex:5];
     
-   
+    
     
     
     for(UIView *wview in [[[tempWebView subviews] objectAtIndex:0] subviews]) {
         if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
     }
     NSLog(@"%@",[array objectAtIndex:2]);
+    
     if([[array objectAtIndex:2] isEqualToString:@"0"])
     {
+        
         if(showComment == YES)
         {
-        [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px;  font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div>  <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'><div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div> <div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
+            [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px;  font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div>  <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'><div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div> <div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
         }
         else
         {
             [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px;  font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div>  <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'><div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div> <div id='commentAll' style='display:none;'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
         }
-       
+        
     }
     else
     {
         if(showComment == YES)
         {
-        [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px; font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div> <div> <img src='%@' width='100%%' /> </div> <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'> <div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div><div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:2],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
+            [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px; font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div> <div> <img src='%@' width='100%%' /> </div> <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'> <div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div><div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:2],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
         }
         else
         {
@@ -75,7 +77,7 @@
         }
     }
     
-       [self.view addSubview:tempWebView];
+    [self.view addSubview:tempWebView];
     
     UIScrollView *scroll = [tempWebView.subviews lastObject];
     if ([scroll isKindOfClass:[UIScrollView class]]) {
@@ -87,35 +89,35 @@
     
     if([[AppDelegate instance] getAdIndicator] == NO)
     {
-    
-    if([[array objectAtIndex:6] isEqualToString:@"open"])
-    {
         
-        if([[AppDelegate instance] hasFourInchDisplay])
+        if([[array objectAtIndex:6] isEqualToString:@"open"])
         {
-            tempWebView.frame = CGRectMake(0, 0, 320, 504-40);
+            
+            if([[AppDelegate instance] hasFourInchDisplay])
+            {
+                tempWebView.frame = CGRectMake(0, 0, 320, 504-40);
+            }
+            else
+            {
+                tempWebView.frame = CGRectMake(0, 0, 320, 417-40);
+            }
+            
+            
+            [self createAGrowTextView];
         }
-        else
-        {
-            tempWebView.frame = CGRectMake(0, 0, 320, 417-40);
+        else{
+            
+            if([[AppDelegate instance] hasFourInchDisplay])
+            {
+                tempWebView.frame = CGRectMake(0, 0, 320, 504);
+            }
+            else
+            {
+                tempWebView.frame = CGRectMake(0, 0, 320, 417);
+            }
+            
+            
         }
-
-        
-        [self createAGrowTextView];
-    }
-    else{
-        
-        if([[AppDelegate instance] hasFourInchDisplay])
-        {
-            tempWebView.frame = CGRectMake(0, 0, 320, 504);
-        }
-        else
-        {
-            tempWebView.frame = CGRectMake(0, 0, 320, 417);
-        }
-
-        
-    }
     }
     else
     {
@@ -147,13 +149,13 @@
             
             
         }
-
+        
         
     }
     specialBtnArray = [array objectAtIndex:8];
     if([[[array objectAtIndex:8] objectAtIndex:0] intValue] == 1)
     {
-   
+        
     }
     else
     {
@@ -165,18 +167,84 @@
     
 }
 
+-(void)insertDataClipping:(NSMutableArray*)array{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    tempWebView = [[UIWebView alloc] init];
+    
+    pUrl = [array objectAtIndex:7];
+    
+    // tempWebView.delegate = self;
+    [[AppDelegate instance] setCurrentPostID:[array objectAtIndex:5]];
+    
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
+    tempWebView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: NSLocalizedString(@"background_images", nil)]];
+    tempWebView.delegate = self;
+    
+    
+    gallery = [[array objectAtIndex:8] objectAtIndex:5];
+    
+    
+    
+    
+    for(UIView *wview in [[[tempWebView subviews] objectAtIndex:0] subviews]) {
+        if([wview isKindOfClass:[UIImageView class]]) { wview.hidden = YES; }
+    }
+    NSLog(@"----++%@",[array objectAtIndex:2]);
+    
+    //CONTEUDO DA INTERNA DO CLIPPING
+    //DETALHE CLIPPING
+    /*  [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px;  font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px;'> %@ </div> <div style='padding:10px;font-size:12px; margin-top:-15px;'> %@ </div>  <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px;'> %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'><div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div> <div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
+     */
+    //DETALHE CLIPPING
+    [tempWebView loadHTMLString:[NSString stringWithFormat:@"<link rel='stylesheet' href='%@/wp-content/plugins/scrollblog/js/couraselcss.css' /><script src='http://code.jquery.com/jquery-1.9.0.min.js'></script><script src='%@/wp-content/plugins/scrollblog/js/jquery.touchcarousel-1.1.min.js'></script> <style> img{ width:100%%; height:auto; } iframe{ width:100%%; height:auto; } object{ width:100%%; height:auto; } hr.embosed { width:100%%; height:0; color:none; background:none; border:none; border-top:0.5px solid #555555; border-bottom:1px solid #d3d3d3; }</style><body background='%@' style='padding:0; margin:0px;  font-family:HelveticaNeue;'> <div style='padding:8px; '> <div style='background-color:#f0f0f2; border-radius: 4px; box-shadow: 0 0 3px #000;'> <div style='font-size:18px;font-weight:bold;padding:10px; padding-bottom: 25px; background:#1A5E44; color:#fff;'> %@ </div> <div style='padding:10px;padding-bottom: 25px; padding-top: 5px; font-size:12px; margin-top:-15px; background:#0F784F; color:#fff;'> %@ </div>  <div id='get_post_gallery'></div> <div style='padding:10px;font-size:12px; margin-top:-20px; background:#F9F9F9; border-bottom:1px solid #666;' > %@ </div> <div id='commentsContainer' style='background-color: #C8C8C8;border-bottom-right-radius:4px;border-bottom-left-radius:4px;'><div style='font-size:14px;padding-left:10px;padding-top:10px;'> %@ . <a href='http://share/' style='color:black; text-decoration:none;'>%@</a></div> <div id='commentAll'> <div style='padding:10px;' align='center'> <img src='%@' height='16' style='height:16px;width:16px;' /> </div> </div> </div> </div> </div></body><script> function reloadComment(){ $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@', function() { $('html, body').animate({ scrollTop: $(document).height() } , 1000); }); } function getJson() { $('#commentAll').load('%@/?scrollblogkruk=comment&id=%@'); $('#get_post_gallery').load('%@/?scrollblogkruk=get_post_gallery&id=%@'); } getJson(); </script>",[[AppDelegate instance] getURL],[[AppDelegate instance] getURL],NSLocalizedString(@"background_images", nil),[array objectAtIndex:0],[array objectAtIndex:1],[array objectAtIndex:3],NSLocalizedString(@"fullstory_comments", nil),NSLocalizedString(@"fullstory_share", nil),@"ajax-loader.gif",[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5],[[AppDelegate instance] getURL],[array objectAtIndex:5]] baseURL:baseURL];
+    
+    
+    [self.view addSubview:tempWebView];
+    
+    UIScrollView *scroll = [tempWebView.subviews lastObject];
+    if ([scroll isKindOfClass:[UIScrollView class]]) {
+        
+        scroll.decelerationRate = UIScrollViewDecelerationRateNormal;
+        
+        
+    }
+    
+    
+    
+    tempWebView.frame = CGRectMake(0, 0, 320, 417);
+    
+    
+    specialBtnArray = [array objectAtIndex:8];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%@",[[array objectAtIndex:8] objectAtIndex:1]] style:UIBarButtonItemStyleDone target:self action:@selector(openSpecialBtn)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    
+    
+}
+
 -(void)openSpecialBtn{
     NSLog(@"%@",[specialBtnArray objectAtIndex:0]);
     if([[specialBtnArray objectAtIndex:0] intValue] == 1)
     {
-         NSLog(@"Open None");
+        NSLog(@"Open None");
         
     }
     else if([[specialBtnArray objectAtIndex:0] intValue] == 2)
     {
         
-         NSLog(@"Open Map");
-       
+        NSLog(@"Open Map");
+        
         NSString* anntonationTitle =[NSString stringWithFormat:@"%@,%@",[specialBtnArray objectAtIndex:2],[specialBtnArray objectAtIndex:3]];
         MapViewController *map = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
         map.title = self.title;
@@ -190,7 +258,7 @@
         iPhoneWebView *ip = [[iPhoneWebView alloc] init];
         
         [ip loadUrlInWebView:[NSString stringWithFormat:@"%@",[specialBtnArray objectAtIndex:4]]];
-         [self.navigationController pushViewController:ip animated:YES];
+        [self.navigationController pushViewController:ip animated:YES];
         
     }
     else if([[specialBtnArray objectAtIndex:0] intValue] == 4)
@@ -198,7 +266,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[specialBtnArray objectAtIndex:4]]]];
         NSLog(@"Open In App Safari");
     }
-   
+    
     
 }
 
@@ -209,7 +277,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-     [[AppDelegate instance] setLandscapeMode:NO];
+    [[AppDelegate instance] setLandscapeMode:NO];
 }
 
 -(void)setShowCommment:(BOOL)arg{
@@ -241,7 +309,7 @@
         [ip loadUrlInWebView:[NSString stringWithFormat:@"http://twitter.com/intent/tweet?text=%@",pUrl]];
         
         
-         [self.navigationController pushViewController:ip animated:YES];
+        [self.navigationController pushViewController:ip animated:YES];
 	} else if (buttonIndex == 2) {
 		NSLog(@"Email");
         
@@ -297,7 +365,7 @@
         
         NSString *myString = [[inRequest URL] absoluteString];
         NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"http://photo"] invertedSet];
-
+        
         
         if([myString isEqualToString:@"http://share/"])
         {
@@ -319,24 +387,24 @@
             }
             else
             {
-            NSMutableArray *allImage = [[NSMutableArray alloc] init];
-            for (NSDictionary *result in gallery) {
+                NSMutableArray *allImage = [[NSMutableArray alloc] init];
+                for (NSDictionary *result in gallery) {
+                    
+                    
+                    MyPhoto *photo = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:[result objectForKey:@"img_url"]] name:[result objectForKey:@"img_caption"]];
+                    [allImage addObject:photo];
+                }
                 
-               
-                MyPhoto *photo = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:[result objectForKey:@"img_url"]] name:[result objectForKey:@"img_caption"]];
-                [allImage addObject:photo];
-            }
-            
-           
-          
-            MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:allImage];
-            
-            EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-            photoController._pageIndex = [[arys objectAtIndex:1] intValue];
-           
-            [[AppDelegate instance] setLandscapeMode:YES];
-            [self.navigationController pushViewController:photoController animated:YES];
-            
+                
+                
+                MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:allImage];
+                
+                EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+                photoController._pageIndex = [[arys objectAtIndex:1] intValue];
+                
+                [[AppDelegate instance] setLandscapeMode:YES];
+                [self.navigationController pushViewController:photoController animated:YES];
+                
             }
             
         }
@@ -351,13 +419,13 @@
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)aView {
-   
+    
     UIScrollView *scroll = [tempWebView.subviews lastObject];
     if ([scroll isKindOfClass:[UIScrollView class]]) {
-      
+        
         scroll.decelerationRate = UIScrollViewDecelerationRateNormal;
         
-         // NSLog(@"Jumpe %f",scroll.contentSize.height);
+        // NSLog(@"Jumpe %f",scroll.contentSize.height);
     }
 }
 - (void)viewDidLoad
@@ -387,14 +455,14 @@
     
 	textView.minNumberOfLines = 1;
 	textView.maxNumberOfLines = 3;
-	textView.returnKeyType = UIReturnKeyDefault; 
+	textView.returnKeyType = UIReturnKeyDefault;
 	textView.font = [UIFont systemFontOfSize:15.0f];
 	textView.delegate = self;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
     textView.text = NSLocalizedString(@"fullstory_comment_placeholder", nil);
     textView.textColor = [UIColor grayColor];
- 
+    
     
     [self.view addSubview:containerView];
 	
@@ -456,7 +524,7 @@
     [setBtn setBackgroundImage:settingBtnBackground forState:UIControlStateNormal];
     [setBtn setBackgroundImage:selectedSettingSendBtnBackground forState:UIControlStateSelected];
 	[containerView addSubview:setBtn];
-
+    
     
     
     containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
@@ -464,12 +532,12 @@
 
 -(void)openSetting
 {
-	iPhoneCommentPostController *se = [[iPhoneCommentPostController alloc] initWithNibName:@"iPhoneCommentPostController" bundle:nil];
-    se.title = @"Settings";
+	//iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
+    //se.title = @"Settings";
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
-    nav.navigationBar.barStyle = UIBarStyleBlack;
-    [self presentModalViewController:nav animated:YES];
+   // UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
+   // nav.navigationBar.barStyle = UIBarStyleBlack;
+   // [self presentModalViewController:nav animated:YES];
 }
 
 
@@ -485,14 +553,14 @@
         NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         [[AppDelegate instance] setSharedWebView:tempWebView];
         
-         [[AppDelegate instance] postCommentiPhone:postData];
-         [textView resignFirstResponder];
+        [[AppDelegate instance] postCommentiPhone:postData];
+        [textView resignFirstResponder];
     }
     else
     {
         [self openSetting];
     }
-   
+    
 }
 
 //Code from Brett Schumann

@@ -77,7 +77,6 @@
 		9F2234111692E3C5007A562C /* MessageEntrySettingButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F22340D1692E3C4007A562C /* MessageEntrySettingButtonPressed@2x.png */; };
 		9F2234121692E3C5007A562C /* MessageEntrySettingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F22340E1692E3C5007A562C /* MessageEntrySettingButton.png */; };
 		9F2234131692E3C5007A562C /* MessageEntrySettingButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F22340F1692E3C5007A562C /* MessageEntrySettingButton@2x.png */; };
-		9F2234171692EA0B007A562C /* iPhoneLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2234151692EA0A007A562C /* iPhoneLoginController.m */; };
 		9F22341B1692FAA5007A562C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2234191692FAA4007A562C /* MBProgressHUD.m */; };
 		9F22341F1693500A007A562C /* iPhoneWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F22341E16935009007A562C /* iPhoneWebView.m */; };
 		9F2234B2169A3340007A562C /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2234AD169A3340007A562C /* NSDataAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -155,7 +154,6 @@
 		9FE7F45E16B314A100985775 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45C16B314A100985775 /* logo@2x.png */; };
 		9FE7F45F16B314A100985775 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45D16B314A100985775 /* logo.png */; };
 		B56F93FA17C6362A0084B31F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B56F93F917C6362A0084B31F /* libsqlite3.0.dylib */; };
-		B5E1563217D4F1E1001BB8BF /* iPhoneLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -281,8 +279,6 @@
 		9F22340D1692E3C4007A562C /* MessageEntrySettingButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySettingButtonPressed@2x.png"; sourceTree = "<group>"; };
 		9F22340E1692E3C5007A562C /* MessageEntrySettingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySettingButton.png; sourceTree = "<group>"; };
 		9F22340F1692E3C5007A562C /* MessageEntrySettingButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySettingButton@2x.png"; sourceTree = "<group>"; };
-		9F2234141692EA0A007A562C /* iPhoneLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneLoginController.h; sourceTree = "<group>"; };
-		9F2234151692EA0A007A562C /* iPhoneLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneLoginController.m; sourceTree = "<group>"; };
 		9F2234191692FAA4007A562C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9F22341A1692FAA4007A562C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9F22341D16935009007A562C /* iPhoneWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneWebView.h; sourceTree = "<group>"; };
@@ -403,7 +399,6 @@
 		9FE7F45C16B314A100985775 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		9FE7F45D16B314A100985775 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B56F93F917C6362A0084B31F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPhoneLoginController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,9 +914,6 @@
 				9F8DB22C168F75180072BEA9 /* FullStoryViewController.xib */,
 				9F22341D16935009007A562C /* iPhoneWebView.h */,
 				9F22341E16935009007A562C /* iPhoneWebView.m */,
-				9F2234141692EA0A007A562C /* iPhoneLoginController.h */,
-				9F2234151692EA0A007A562C /* iPhoneLoginController.m */,
-				B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */,
 				9FBDD25116A5847F00A28629 /* MapViewController.h */,
 				9FBDD25216A5847F00A28629 /* MapViewController.m */,
 				9FBDD25316A5847F00A28629 /* MapViewController.xib */,
@@ -1102,7 +1094,6 @@
 				9FBBC45716EC938C00C2EBAF /* coution.png in Resources */,
 				9CDDF16417C7910E00DB80CA /* btn_calendario.png in Resources */,
 				9CBEFD8A17CBB91700BB4198 /* btn_padrao.png in Resources */,
-				B5E1563217D4F1E1001BB8BF /* iPhoneLoginController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,7 +1151,6 @@
 				9F8DB22D168F75180072BEA9 /* FullStoryViewController.m in Sources */,
 				9F2233F616920A7D007A562C /* HPGrowingTextView.m in Sources */,
 				9F2233F716920A7D007A562C /* HPTextViewInternal.m in Sources */,
-				9F2234171692EA0B007A562C /* iPhoneLoginController.m in Sources */,
 				9F22341B1692FAA5007A562C /* MBProgressHUD.m in Sources */,
 				9F22341F1693500A007A562C /* iPhoneWebView.m in Sources */,
 				9F2234B2169A3340007A562C /* NSDataAdditions.m in Sources */,

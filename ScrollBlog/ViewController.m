@@ -297,12 +297,12 @@
     
     //[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     
-    iPhoneCommentPostController *se = [[iPhoneCommentPostController alloc] initWithNibName:@"iPhoneCommentPostController" bundle:nil];
-    se.title = @"Settings";
+   // iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
+  //  se.title = @"Settings";
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
-    nav.navigationBar.barStyle = UIBarStyleBlack;
-    [self presentModalViewController:nav animated:YES];
+  //  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
+  //  nav.navigationBar.barStyle = UIBarStyleBlack;
+  //  [self presentModalViewController:nav animated:YES];
     
 }
 
@@ -1145,58 +1145,58 @@
         //Fim Recebe
         //FIM JSON
         
-       /* NSArray *classificacao_nome = [jsonData valueForKey:@"classificacao_nome"];
-        
-        NSArray *cmp_clipping_id = [jsonData valueForKey:@"cmp_clipping_id"];
-        NSArray *titulo_clipping = [jsonData valueForKey:@"titulo"];
-        NSArray *cmp_veiculo_nome = [jsonData valueForKey:@"cmp_veiculo_nome"];
-        NSArray *data_publicacao = [jsonData valueForKey:@"data_publicacao"];
-        
-        
-        
-        //int size = [idArray count];
-        //NSLog(@"there are %d objects in the array", size);
-        
-        // With a traditional for loop
-        NSString *control_cabecalho_classificacao = @"";
-        NSString *cabecalho_classificacao = @"";
-        
-        for (int i=0; i<[cmp_clipping_id count]; i++) {
-            
-            NSString * str_nome_classificacao = classificacao_nome[i];
-            if([control_cabecalho_classificacao isEqualToString: str_nome_classificacao])
-            {
-                cabecalho_classificacao = @"";
-            }
-            else
-            {
-                //NSLog(@"---> %@",[NSString stringWithFormat:@"%@%@", control_cabecalho_classificacao , classificacao_nome[i]]);
-                control_cabecalho_classificacao = str_nome_classificacao;
-                cabecalho_classificacao = str_nome_classificacao;
-            }
-            
-           // [recentPost addObject:[NSArray arrayWithObjects: cmp_clipping_id[i], titulo_clipping[i], data_publicacao[i], @"0",cabecalho_classificacao, cmp_veiculo_nome[i],@"3",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
-        }*/
+        /* NSArray *classificacao_nome = [jsonData valueForKey:@"classificacao_nome"];
+         
+         NSArray *cmp_clipping_id = [jsonData valueForKey:@"cmp_clipping_id"];
+         NSArray *titulo_clipping = [jsonData valueForKey:@"titulo"];
+         NSArray *cmp_veiculo_nome = [jsonData valueForKey:@"cmp_veiculo_nome"];
+         NSArray *data_publicacao = [jsonData valueForKey:@"data_publicacao"];
+         
+         
+         
+         //int size = [idArray count];
+         //NSLog(@"there are %d objects in the array", size);
+         
+         // With a traditional for loop
+         NSString *control_cabecalho_classificacao = @"";
+         NSString *cabecalho_classificacao = @"";
+         
+         for (int i=0; i<[cmp_clipping_id count]; i++) {
+         
+         NSString * str_nome_classificacao = classificacao_nome[i];
+         if([control_cabecalho_classificacao isEqualToString: str_nome_classificacao])
+         {
+         cabecalho_classificacao = @"";
+         }
+         else
+         {
+         //NSLog(@"---> %@",[NSString stringWithFormat:@"%@%@", control_cabecalho_classificacao , classificacao_nome[i]]);
+         control_cabecalho_classificacao = str_nome_classificacao;
+         cabecalho_classificacao = str_nome_classificacao;
+         }
+         
+         // [recentPost addObject:[NSArray arrayWithObjects: cmp_clipping_id[i], titulo_clipping[i], data_publicacao[i], @"0",cabecalho_classificacao, cmp_veiculo_nome[i],@"3",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
+         }*/
         
         NSString *cmp_clipping_descricao = [jsonData valueForKey:@"descricao"];
         NSString *cmp_clipping_header = [jsonData valueForKey:@"header"];
-  
+        
         [data replaceObjectAtIndex:3 withObject:cmp_clipping_descricao];
         [data replaceObjectAtIndex:1 withObject:cmp_clipping_header];
-
-          NSLog(@"--<=>> %@",cmp_clipping_header);
-                  NSLog(@"--<=>> %@",[data objectAtIndex:1]);
+        
+        NSLog(@"--<=>> %@",cmp_clipping_header);
+      /*  NSLog(@"--<=>> %@",[data objectAtIndex:1]);
         NSLog(@"--<=>> %@",[data objectAtIndex:2]);
-                          NSLog(@"--<=>> %@",[data objectAtIndex:3]);
-                          NSLog(@"--<=>> %@",[data objectAtIndex:4]);
-                          NSLog(@"--<=>> %@",[data objectAtIndex:5]);
-                          NSLog(@"--<=>> %@",[data objectAtIndex:6]);
-                                  NSLog(@"--<=>> %@",[data objectAtIndex:7]);
-                                  NSLog(@"--<=>> %@",[data objectAtIndex:8]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:3]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:4]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:5]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:6]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:7]);
+        NSLog(@"--<=>> %@",[data objectAtIndex:8]);*/
         NSLog(@"Problem 1 ");
         FullStoryViewController *det = [[FullStoryViewController alloc] initWithNibName:@"FullStoryViewController" bundle:nil];
         [det setShowCommment:YES];
-       // [det insertDataClipping:data];
+        [det insertDataClipping:data];
         //[det insertData:data];
         
         
@@ -1204,6 +1204,7 @@
         det.title = [data objectAtIndex:0];
         [self.navigationController pushViewController:det animated:YES];
         NSLog(@"Problem 2 ");
+
     }
     
    // [[AppDelegate instance] refreshAdMobBanner];

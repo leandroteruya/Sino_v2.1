@@ -20,6 +20,7 @@
   
 }
 
+-(void)insertDataClipping:(NSArray*)array;
 -(void)insertData:(NSArray*)array;
 -(void)setShowCommment:(BOOL)arg;
 -(void)resignTextView;
