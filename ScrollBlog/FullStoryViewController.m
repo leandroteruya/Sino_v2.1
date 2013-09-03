@@ -464,7 +464,7 @@
 
 -(void)openSetting
 {
-	iPhoneCommentPostController *se = [[iPhoneCommentPostController alloc] initWithNibName:@"iPhoneCommentPostController" bundle:nil];
+	iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
     se.title = @"Settings";
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];

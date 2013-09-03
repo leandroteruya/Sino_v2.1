@@ -1,7 +1,7 @@
 #import "iPhoneLoginController.h"
 #import "SBJson.h"
   
-@interface iPhoneCommentPostController()
+@interface iPhoneLoginController()
 
 @end
   
@@ -11,10 +11,9 @@
 @end
   
   
-@implementation iPhoneCommentPostController
+@implementation iPhoneLoginController
 
 @synthesize name,password,editedFieldKey, saveInfo;
-//@synthesize lembrarSenha;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,35 +67,6 @@
 }
 
 
-/*- (IBAction)lembraSenhaAction:(id)sender {
-    NSLog(@"TESTE");
-    
-    /*if(lembrarSenha.on){
-        
-        // if lights are on
-        [onOffLabel setText:@"Lights Currently On"];
-        onOffLabel.textColor = [UIColor blackColor];
-        
-        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:219.0/255.0 blue:52.0/255.0 alpha:1.0];
-        
-    }
-    
-    else {
-        
-        // If lights are off
-        [onOffLabel setText:@"Lights Currently Off"];
-        onOffLabel.textColor = [UIColor whiteColor];
-        
-        self.view.backgroundColor = [UIColor blackColor];
-     
-    }
-    
-}*/
-
-- (IBAction)LembraSenhaAction:(id)sender {
-    
-     NSLog(@"TESTE");
-}
 
 -(void)backBtnAction{
     [self dismissModalViewControllerAnimated:YES];
