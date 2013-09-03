@@ -169,6 +169,9 @@
 		0EA60C7217605C4A00420DCD /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		9CBEFD8917CBB91700BB4198 /* btn_padrao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_padrao.png; sourceTree = "<group>"; };
 		9CBEFD8B17CBCBA800BB4198 /* selectbox */ = {isa = PBXFileReference; lastKnownFileType = file; path = selectbox; sourceTree = "<group>"; };
+		9CCDAFD817D610A5009A1064 /* iPhoneLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPhoneLoginController.h; sourceTree = "<group>"; };
+		9CCDAFD917D610A5009A1064 /* iPhoneLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iPhoneLoginController.m; sourceTree = "<group>"; };
+		9CCDAFDA17D610A5009A1064 /* iPhoneLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iPhoneLoginController.xib; sourceTree = "<group>"; };
 		9CD73C1117D4C86200A7238A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9CD73C1317D4C8F500A7238A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9CDDF16317C7910E00DB80CA /* btn_calendario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_calendario.png; sourceTree = "<group>"; };
@@ -912,6 +915,9 @@
 				9F8DB22A168F75160072BEA9 /* FullStoryViewController.h */,
 				9F8DB22B168F75170072BEA9 /* FullStoryViewController.m */,
 				9F8DB22C168F75180072BEA9 /* FullStoryViewController.xib */,
+				9CCDAFD817D610A5009A1064 /* iPhoneLoginController.h */,
+				9CCDAFD917D610A5009A1064 /* iPhoneLoginController.m */,
+				9CCDAFDA17D610A5009A1064 /* iPhoneLoginController.xib */,
 				9F22341D16935009007A562C /* iPhoneWebView.h */,
 				9F22341E16935009007A562C /* iPhoneWebView.m */,
 				9FBDD25116A5847F00A28629 /* MapViewController.h */,

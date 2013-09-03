@@ -9,6 +9,7 @@
 #import "iPhoneWebView.h"
 #import "MapViewController.h"
 #import "mapViewViewController.h"
+#import "iPhoneLoginController.h"
 #define HEADER_FONT                    [UIFont fontWithName:@"HelveticaNeue-Bold" size:16]
 #define HEADER_FONT_CLASSIFICACAO      [UIFont fontWithName:@"HelveticaNeue" size:18]
 #define NORMAL_BOLD_FONT               [UIFont fontWithName:@"HelveticaNeue-Bold" size:12]
@@ -295,19 +296,15 @@
 
 -(void)subscribe{
     
-    //[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     
-<<<<<<< HEAD
-   // iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
-  //  se.title = @"Settings";
-=======
     iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
     se.title = @"Settings";
->>>>>>> 6806584daf2a6d0c37fe3ed61d36109ce508eb8b
+
     
-  //  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
-  //  nav.navigationBar.barStyle = UIBarStyleBlack;
-  //  [self presentModalViewController:nav animated:YES];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
+    nav.navigationBar.barStyle = UIBarStyleBlack;
+    [self presentModalViewController:nav animated:YES];
     
 }
 
