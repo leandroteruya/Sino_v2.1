@@ -539,7 +539,7 @@
     MGTableBoxStyled *section = MGTableBoxStyled.box;
     section.margin = UIEdgeInsetsMake(20.0, 7.0, 0.0, 0.0);
     [scroller.boxes addObject:section];
-    
+
     PhotoBox *box = [PhotoBox fullImageBox:CGSizeMake(305,305) pictureURL:url title:title pDate:pDate];
     
     box.onTap = ^{
@@ -1182,19 +1182,27 @@
         
         NSString *cmp_clipping_descricao = [jsonData valueForKey:@"descricao"];
         NSString *cmp_clipping_header = [jsonData valueForKey:@"header"];
+       // NSString *imagem = [jsonData valueForKey:@"imagem"];
         
+        NSArray *array_imagem = [jsonData valueForKey:@"imagem"];
+        NSArray *imagem_galeria = [jsonData valueForKey:@"imagem_galeria"];
+        NSString * imagem_tratada = array_imagem[0];
+    //  NSLog(@"--<=aaaaa>> %@",imagem_galeria);
+            
         [data replaceObjectAtIndex:3 withObject:cmp_clipping_descricao];
         [data replaceObjectAtIndex:1 withObject:cmp_clipping_header];
+        //[data replaceObjectAtIndex:2 withObject:imagem_tratada];
+        [data replaceObjectAtIndex:4 withObject:imagem_galeria];
+        [data replaceObjectAtIndex:8 withObject:array_imagem];
         
-        NSLog(@"--<=>> %@",cmp_clipping_header);
-      /*  NSLog(@"--<=>> %@",[data objectAtIndex:1]);
+ /*       NSLog(@"--<=>> %@",[data objectAtIndex:1]);
         NSLog(@"--<=>> %@",[data objectAtIndex:2]);
         NSLog(@"--<=>> %@",[data objectAtIndex:3]);
         NSLog(@"--<=>> %@",[data objectAtIndex:4]);
         NSLog(@"--<=>> %@",[data objectAtIndex:5]);
         NSLog(@"--<=>> %@",[data objectAtIndex:6]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:7]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:8]);*/
+        NSLog(@"--<=>>7 %@",[data objectAtIndex:7]);
+        NSLog(@"--<=>>8 %@",[data objectAtIndex:8]);*/
         NSLog(@"Problem 1 ");
         FullStoryViewController *det = [[FullStoryViewController alloc] initWithNibName:@"FullStoryViewController" bundle:nil];
         [det setShowCommment:YES];
