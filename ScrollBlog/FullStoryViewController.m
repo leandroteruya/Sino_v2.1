@@ -532,8 +532,13 @@
 
 -(void)openSetting
 {
+<<<<<<< HEAD
 	//iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
     //se.title = @"Settings";
+=======
+	iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
+    se.title = @"Settings";
+>>>>>>> 6806584daf2a6d0c37fe3ed61d36109ce508eb8b
     
    // UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
    // nav.navigationBar.barStyle = UIBarStyleBlack;
