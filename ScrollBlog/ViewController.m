@@ -9,7 +9,6 @@
 #import "iPhoneWebView.h"
 #import "MapViewController.h"
 #import "mapViewViewController.h"
-#import "iPhoneLoginController.h"
 #define HEADER_FONT                    [UIFont fontWithName:@"HelveticaNeue-Bold" size:16]
 #define HEADER_FONT_CLASSIFICACAO      [UIFont fontWithName:@"HelveticaNeue" size:18]
 #define NORMAL_BOLD_FONT               [UIFont fontWithName:@"HelveticaNeue-Bold" size:12]
@@ -296,11 +295,10 @@
 
 -(void)subscribe{
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    //[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     
     iPhoneLoginController *se = [[iPhoneLoginController alloc] initWithNibName:@"iPhoneLoginController" bundle:nil];
     se.title = @"Settings";
-
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:se];
     nav.navigationBar.barStyle = UIBarStyleBlack;
@@ -539,7 +537,7 @@
     MGTableBoxStyled *section = MGTableBoxStyled.box;
     section.margin = UIEdgeInsetsMake(20.0, 7.0, 0.0, 0.0);
     [scroller.boxes addObject:section];
-
+    
     PhotoBox *box = [PhotoBox fullImageBox:CGSizeMake(305,305) pictureURL:url title:title pDate:pDate];
     
     box.onTap = ^{
@@ -548,82 +546,6 @@
     
     [section.topLines addObject:box];
 }
-
--(void)fullImageBox2:(NSString*)url title:(NSString*)title pDate:(NSString*)pDate fullContent:(NSString*)content jsonComment:(NSString*)comment postID:(NSString*)pID comment_status:(NSString*)status pUrl:(NSString*)pUrl extra:(NSArray*)ary{
-    MGTableBoxStyled *section = MGTableBoxStyled.box;
-    section.margin = UIEdgeInsetsMake(1.0, 7.0, 0.0, 0.0);
-    [scroller.boxes addObject:section];
-    
-    UIEdgeInsets titleInsets = UIEdgeInsetsMake(0, 0.0, 5.0, 0.0);
-    section.padding = titleInsets;
-    
-    id waffle2 = content;
-    id waffleHeader = title;
-    id waffleHeader2 = pDate;
-    
-    NSString *trimmedString = [content stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
-    
-    
-    //Header dos Clippings nome Classificacao
-    if([trimmedString length] > 0 )
-    {
-        id nome_classificacao
-        = content;
-        // stuff
-        
-        MGLineStyled *lineHeader0 = [MGLineStyled multilineWithText:[self decodeHTMLCharacterEntities:nome_classificacao] font:HEADER_FONT_CLASSIFICACAO width:304
-                                                            padding:UIEdgeInsetsMake(8, 16, 8, 16) ];
-        lineHeader0.borderStyle &= ~MGBorderEtchedBottom;
-        lineHeader0.backgroundColor = [UIColor colorWithRed:17/255.0f
-                                                      green:126/255.0f
-                                                       blue:84/255.0f
-                                                      alpha:1.0f];
-        lineHeader0.textColor = UIColor.whiteColor;
-        [section.topLines addObject:lineHeader0];
-    }
-    //FIM Header dos Clippings nome Classificacao
-    
-    //Titulo Clipping
-    // stuff
-    MGLineStyled *lineHeader1 = [MGLineStyled multilineWithText:[self decodeHTMLCharacterEntities:waffleHeader] font:HEADER_FONT width:304
-                                                        padding:UIEdgeInsetsMake(0, 16, 3, 16)];
-    lineHeader1.borderStyle &= ~MGBorderEtchedBottom;
-    lineHeader1.backgroundColor = [UIColor colorWithRed:204/255.0f
-                                                  green:204/255.0f
-                                                   blue:204/255.0f
-                                                  alpha:1.0f];
-    lineHeader1.textColor = [UIColor colorWithRed:44/255.0f
-                                            green:107/255.0f
-                                             blue:84/255.0f
-                                            alpha:1.0f];
-    lineHeader1.onTap = ^{
-        [self goToDetalheClippingViewController:[NSMutableArray arrayWithObjects:title,pDate,@"0",content,comment,pID,status,pUrl,ary, nil]];
-    };
-    
-    [section.topLines addObject:lineHeader1];
-    //FIM Titulo Clipping
-    
-    NSString * data = [NSString stringWithFormat:@"%@ - %@", waffleHeader2 , waffle2];
-    // stuff
-    MGLineStyled *lineHeader2 = [MGLineStyled multilineWithText:data  font:NORMAL_FONT width:304
-                                                        padding:UIEdgeInsetsMake(7, 16, 7, 16)];
-    lineHeader2.borderStyle &= ~MGBorderEtchedTop;
-    lineHeader2.backgroundColor = [UIColor colorWithRed:240/255.0f
-                                                  green:240/255.0f
-                                                   blue:240/255.0f
-                                                  alpha:1.0f];
-    lineHeader2.textColor = [UIColor colorWithRed:102/255.0f
-                                            green:102/255.0f
-                                             blue:102/255.0f
-                                            alpha:1.0f];
-    lineHeader2.onTap = ^{
-        [self goToDetalheClippingViewController:[NSMutableArray arrayWithObjects:title,pDate,@"0",content,comment,pID,status,pUrl,ary, nil]];
-    };
-    [section.topLines addObject:lineHeader2];
-    
-    [scroller scrollToView:section withMargin:8];
-}
-
 
 -(void)addBoxWithNoImage:(NSString*)title pDate:(NSString*)pDate shortDesc:(NSString*)desc fullContent:(NSString*)content jsonComment:(NSString*)comment postID:(NSString*)pID comment_status:(NSString*)status pUrl:(NSString*)pUrl extra:(NSArray*)ary{
     //CGSize rowSize = (CGSize){304, 40};
@@ -830,19 +752,16 @@
 -(void)addBoxClippings:(NSString*)title pDate:(NSString*)pDate shortDesc:(NSString*)desc fullContent:(NSString*)content jsonComment:(NSString*)comment postID:(NSString*)pID comment_status:(NSString*)status pUrl:(NSString*)pUrl extra:(NSArray*)ary{
     //CGSize rowSize = (CGSize){304, 40};
     
+    //NSLog(ary[2]);
+    
     MGTableBoxStyled *section = MGTableBoxStyled.box;
-    section.margin = UIEdgeInsetsMake(1.0, 7.0, 0.0, 0.0);
+    section.margin = UIEdgeInsetsMake(5.0, 7.0, 0.0, 0.0);
     [scroller.boxes addObject:section];
     
     UIEdgeInsets titleInsets = UIEdgeInsetsMake(0, 0.0, 5.0, 0.0);
     section.padding = titleInsets;
     
     id waffle2 = desc;
-    //title -> titulo
-    //pDate -> cmp_veiculo_nome
-    //pID ->id_clipping
-    //content -> classificacao_nome
-    //NSLog(@"-=--> %@",[NSString stringWithFormat:@"%@ - %@ - %@ - %@", content , comment, comment, pUrl]);
     
     // a header row
     id waffleHeader
@@ -885,6 +804,7 @@
                                              blue:84/255.0f
                                             alpha:1.0f];
     lineHeader1.onTap = ^{
+        
         [self goToDetalheClippingViewController:[NSMutableArray arrayWithObjects:title,pDate,@"0",content,comment,pID,status,pUrl,ary, nil]];
     };
     
@@ -905,6 +825,7 @@
                                              blue:102/255.0f
                                             alpha:1.0f];
     lineHeader2.onTap = ^{
+
         [self goToDetalheClippingViewController:[NSMutableArray arrayWithObjects:title,pDate,@"0",content,comment,pID,status,pUrl,ary, nil]];
     };
     [section.topLines addObject:lineHeader2];
@@ -1062,6 +983,7 @@
 -(void)goToDetailViewController:(NSArray*)data{
     
     
+    
     if(useWebBrowserAsDetail == YES)
     {
         
@@ -1094,7 +1016,8 @@
 //DETALHE DO CLIPPING
 -(void)goToDetalheClippingViewController:(NSMutableArray*)data{
     
-    
+//[self.view removeFromSuperview];
+
     if(useWebBrowserAsDetail == YES)
     {
         
@@ -1182,27 +1105,21 @@
         
         NSString *cmp_clipping_descricao = [jsonData valueForKey:@"descricao"];
         NSString *cmp_clipping_header = [jsonData valueForKey:@"header"];
-       // NSString *imagem = [jsonData valueForKey:@"imagem"];
         
-        NSArray *array_imagem = [jsonData valueForKey:@"imagem"];
-        NSArray *imagem_galeria = [jsonData valueForKey:@"imagem_galeria"];
-        NSString * imagem_tratada = array_imagem[0];
-    //  NSLog(@"--<=aaaaa>> %@",imagem_galeria);
-            
         [data replaceObjectAtIndex:3 withObject:cmp_clipping_descricao];
         [data replaceObjectAtIndex:1 withObject:cmp_clipping_header];
-        //[data replaceObjectAtIndex:2 withObject:imagem_tratada];
-        [data replaceObjectAtIndex:4 withObject:imagem_galeria];
-        [data replaceObjectAtIndex:8 withObject:array_imagem];
         
- /*       NSLog(@"--<=>> %@",[data objectAtIndex:1]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:2]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:3]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:4]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:5]);
-        NSLog(@"--<=>> %@",[data objectAtIndex:6]);
-        NSLog(@"--<=>>7 %@",[data objectAtIndex:7]);
-        NSLog(@"--<=>>8 %@",[data objectAtIndex:8]);*/
+        
+        
+        //NSLog(@"--<=>> %@",cmp_clipping_header);
+        /*  NSLog(@"--<=>> %@",[data objectAtIndex:1]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:2]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:3]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:4]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:5]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:6]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:7]);
+         NSLog(@"--<=>> %@",[data objectAtIndex:8]);*/
         NSLog(@"Problem 1 ");
         FullStoryViewController *det = [[FullStoryViewController alloc] initWithNibName:@"FullStoryViewController" bundle:nil];
         [det setShowCommment:YES];
@@ -1214,10 +1131,10 @@
         det.title = [data objectAtIndex:0];
         [self.navigationController pushViewController:det animated:YES];
         NSLog(@"Problem 2 ");
-
+        
     }
     
-   // [[AppDelegate instance] refreshAdMobBanner];
+    // [[AppDelegate instance] refreshAdMobBanner];
 }
 //FIM DETALHE DO CLIPPING
 
@@ -1510,22 +1427,22 @@ mapGroup = [[mapViewViewController alloc] initWithNibName:@"mapViewViewControlle
     
     //CAMPO DATA TIPO
     datelabeltipo = [[UILabel alloc] init];
-    datelabeltipo.frame = CGRectMake(5, 50, 310, 40);
+    datelabeltipo.frame = CGRectMake(7, 50, 303, 40);
     datelabeltipo.textColor = [UIColor grayColor];
     datelabeltipo.font = [UIFont fontWithName:@"Verdana-Bold" size: 20.0];
     datelabeltipo.textAlignment = UITextAlignmentCenter;
     datelabeltipo.text = [NSString stringWithFormat:@"Filtrar por: Publicação"];
-    
     datelabeltipo.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture2 =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MostraDateTipo)];
     [datelabeltipo addGestureRecognizer:tapGesture2];
     [self.view addSubview:datelabeltipo];
     
+
     
     //Campo DATA
     datelabel = [[UILabel alloc] init];
-    datelabel.frame = CGRectMake(5, 5, 180, 40);
+    datelabel.frame = CGRectMake(7, 5, 178, 40);
     datelabel.textColor = [UIColor grayColor];
     datelabel.font = [UIFont fontWithName:@"Verdana-Bold" size: 20.0];
     datelabel.textAlignment = UITextAlignmentCenter;
@@ -1641,9 +1558,11 @@ mapGroup = [[mapViewViewController alloc] initWithNibName:@"mapViewViewControlle
     
     [scroller.boxes removeAllObjects];
     
+    
     //Pega data selecionada pelo usuario
     NSString *DataFiltro = datelabel.text;
     NSString *data_tipo = nil;
+    NSString *id_usuario = nil;
     
     NSString *data_tipo_select = datelabeltipo.text;
     if ([data_tipo_select isEqualToString:@"Filtrar por: Publicação"]) 
@@ -1654,9 +1573,34 @@ mapGroup = [[mapViewViewController alloc] initWithNibName:@"mapViewViewControlle
     {
         data_tipo = @"cmp_clipping_data_materia";
     }
+    
+    //Busca ID do usuario
+    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask,
+                                                             YES) objectAtIndex:0];
+    NSString *dbPath = [dirPath stringByAppendingPathComponent:@"sino.sqlite"];
+    
+    if (sqlite3_open([dbPath UTF8String], &db) == SQLITE_OK)
+    {
+        const char *sql = "SELECT * FROM tbl_usuario";
+        sqlite3_stmt *sqlStatement;
+        if(sqlite3_prepare(db, sql, -1, &sqlStatement, NULL) != SQLITE_OK)
+        {
+            NSLog(@"Erro ao consultar banco");
+        }
+        else
+        {
+            while (sqlite3_step(sqlStatement)==SQLITE_ROW)
+            {
+                 id_usuario = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement,3)];
+            }
+        }
+    }
+    sqlite3_close(db);
+    //FECHA Busca ID do usuario
 
     
-    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@&user_data_busca=%@&data_tipo=%@",@"busca_clipping_classificacao",@"806",DataFiltro,data_tipo];
+    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@&user_data_busca=%@&data_tipo=%@",@"busca_clipping_classificacao",id_usuario,DataFiltro,data_tipo];
     NSLog(@"PostData: %@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://www.sinosistema.net/sgc/android_webservice/index_ios.php"];
@@ -1697,7 +1641,7 @@ mapGroup = [[mapViewViewController alloc] initWithNibName:@"mapViewViewControlle
     
     NSArray *cmp_clipping_id = [jsonData valueForKey:@"cmp_clipping_id"];
     NSArray *titulo_clipping = [jsonData valueForKey:@"titulo"];
-    //NSArray *cmp_veiculo_nome = [jsonData valueForKey:@"cmp_veiculo_nome"];
+    NSArray *cmp_veiculo_nome = [jsonData valueForKey:@"cmp_veiculo_nome"];
     NSArray *data_publicacao = [jsonData valueForKey:@"data_publicacao"];
     NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
     
@@ -1720,8 +1664,11 @@ mapGroup = [[mapViewViewController alloc] initWithNibName:@"mapViewViewControlle
             cabecalho_classificacao = str_nome_classificacao;
         }
         
-        [self fullImageBox2:nil title:titulo_clipping[i] pDate:data_publicacao[i] fullContent:nil jsonComment:nil postID:nil comment_status:nil pUrl:nil extra:nil];
-        datePicker.hidden = YES;
+        //TEMP
+        NSArray  *myArray2 = [NSArray arrayWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0"];
+        
+        [self addBoxClippings:titulo_clipping[i] pDate:cmp_veiculo_nome[i] shortDesc:data_publicacao[i] fullContent:cabecalho_classificacao jsonComment:@"" postID:cmp_clipping_id[i] comment_status:@"close" pUrl:@"2" extra:myArray2];
+
     }
         
     }

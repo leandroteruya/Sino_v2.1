@@ -13,7 +13,7 @@
   
 @implementation iPhoneLoginController
 
-@synthesize name,password,editedFieldKey, saveInfo;
+@synthesize name,password,editedFieldKey, saveInfo, Switch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +23,17 @@
         
     }
     return self;
+}
+
+-(IBAction)onOffSwitch:(id)sender{
+    
+    if(Switch.isOn){
+        NSLog(@"okoko 1");
+    }
+    else{
+        NSLog(@"okoko 2");
+    }
+    
 }
 
 - (void)viewDidLoad
@@ -84,10 +95,10 @@
         
         if([saveInfo.currentTitle isEqual: @"Sair"])
         {
- 
-            
+
             name.text = @"";
             password.text = @"";
+            
             [saveInfo setTitle:@"Entrar" forState:UIControlStateNormal];
             
             //Pega diretorio do banco

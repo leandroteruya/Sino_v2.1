@@ -456,25 +456,50 @@ static NSString *url = @"http://scrollblog.practison.com";
 
 }
 
-
-//Monta a lista de clasificacoes 
+//Monta a lista de clasificacoes
 -(void)getClasificacoes:(NSArray*)arg{
-     NSLog(@"Your message here3");
+    NSLog(@"Your message here3");
     [recentPost removeAllObjects];
     [previous_total_per_page removeAllObjects];
     //NSString *stringURL = [arg objectAtIndex:0];
-   // NSURL  *urlsss = [NSURL URLWithString:stringURL];
-   // NSData *urlData = [NSData dataWithContentsOfURL:urlsss];
-
+    // NSURL  *urlsss = [NSURL URLWithString:stringURL];
+    // NSData *urlData = [NSData dataWithContentsOfURL:urlsss];
+    
     //JSON
     //data.put("acesso", "classificacao");
 	//data.put("userUid_pessoa", SinoConstants.uid_pessoa);//uid_pessoa->583  // 806
     
+    //Busca ID do usuario
+    NSString *id_usuario = nil;
+    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask,
+                                                             YES) objectAtIndex:0];
+    NSString *dbPath = [dirPath stringByAppendingPathComponent:@"sino.sqlite"];
+    
+    if (sqlite3_open([dbPath UTF8String], &db) == SQLITE_OK)
+    {
+        const char *sql = "SELECT * FROM tbl_usuario";
+        sqlite3_stmt *sqlStatement;
+        if(sqlite3_prepare(db, sql, -1, &sqlStatement, NULL) != SQLITE_OK)
+        {
+            NSLog(@"Erro ao consultar banco");
+        }
+        else
+        {
+            while (sqlite3_step(sqlStatement)==SQLITE_ROW)
+            {
+                id_usuario = [NSString stringWithUTF8String:(char *) sqlite3_column_text(sqlStatement,3)];
+            }
+        }
+    }
+    sqlite3_close(db);
+    //FECHA Busca ID do usuario
+    
     //NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"classificacao",@"806"];
-    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"seleciona_clipping_classificacao",@"806"];
+    NSString *post =[[NSString alloc] initWithFormat:@"acesso=%@&userUid_pessoa=%@",@"seleciona_clipping_classificacao",id_usuario];
     //NSString *post =[[NSString alloc] initWithFormat:@"nome=%@&password=%@&tag=login",@"edenred_dea",@"edenred_dea"];
     
-
+    
     NSLog(@"PostData: %@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://www.sinosistema.net/sgc/android_webservice/index_ios.php"];
@@ -498,15 +523,15 @@ static NSString *url = @"http://scrollblog.practison.com";
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     //
-     // NSData *sa = [NSData dataWithContentsOfURL:url];
+    // NSData *sa = [NSData dataWithContentsOfURL:url];
     // NSString *jsonString = [[NSString alloc] initWithData:sa encoding:NSUTF8StringEncoding];
-     //NSArray *results = [jsonString JSONValue];
+    //NSArray *results = [jsonString JSONValue];
+    
+    /*  for (NSDictionary *result in results) {
      
-   /*  for (NSDictionary *result in results) {
-     
-    [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],[NSString stringWithFormat:@"%@",[result objectForKey:@"created_at"]],@"0",@"close",@"1",[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],@"",@"",@"",@"",@"",@"", nil]];
-    // NSLog(@"Response ==> %@", [NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]]);
-         [recentPost addObject:[NSArray arrayWithObjects: @"Classificacao 1",@"Titulo 1",@"description 1",@"0",@"data",@"test",@"0",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
+     [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],[NSString stringWithFormat:@"%@",[result objectForKey:@"created_at"]],@"0",@"close",@"1",[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],@"",@"",@"",@"",@"",@"", nil]];
+     // NSLog(@"Response ==> %@", [NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]]);
+     [recentPost addObject:[NSArray arrayWithObjects: @"Classificacao 1",@"Titulo 1",@"description 1",@"0",@"data",@"test",@"0",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
      }*/
     //
     
@@ -518,16 +543,16 @@ static NSString *url = @"http://scrollblog.practison.com";
     NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
     NSLog(@"--> %@",jsonData);
     
-  //  NSString *idValues = [jsonData valueForKey:@"classificacao_id"];
-  //  NSString *classificacaoValues = [jsonData valueForKey:@"classificacao_titulo"];
+    //  NSString *idValues = [jsonData valueForKey:@"classificacao_id"];
+    //  NSString *classificacaoValues = [jsonData valueForKey:@"classificacao_titulo"];
     
-   // NSArray *idArray = [idValues componentsSeparatedByString:@","];
-   // NSArray *classificacaoArray = [classificacaoValues componentsSeparatedByString:@","];
+    // NSArray *idArray = [idValues componentsSeparatedByString:@","];
+    // NSArray *classificacaoArray = [classificacaoValues componentsSeparatedByString:@","];
     
     
-   
-   // NSLog(@"----> %@",values);
-//    NSArray *existingSection2 =[jsonData valueForKey:@"classificacao_id"];
+    
+    // NSLog(@"----> %@",values);
+    //    NSArray *existingSection2 =[jsonData valueForKey:@"classificacao_id"];
     NSArray *keys;
     int i, count;
     id key, value;
@@ -543,21 +568,21 @@ static NSString *url = @"http://scrollblog.practison.com";
     
     for (NSString *result in jsonData) {
         
-           /* [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],[NSString stringWithFormat:@"%@",[result objectForKey:@"created_at"]],@"0",@"close",@"1",[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],@"",@"",@"",@"",@"",@"", nil]];*/
+        /* [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],[NSString stringWithFormat:@"%@",[result objectForKey:@"created_at"]],@"0",@"close",@"1",[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",[arg objectAtIndex:0],[result objectForKey:@"id_str"]],@"",@"",@"",@"",@"",@"", nil]];*/
         // NSLog(@"Response ==> %@", [NSString stringWithFormat:@"%@",[result objectForKey:@"classificacao_titulo"]]);
-    //    [recentPost addObject:[NSArray arrayWithObjects: @"Classificacao 1",[jsonData objectForKey:@"classificacao_titulo"],@"description 1",@"0",@"data",@"test",@"0",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
+        //    [recentPost addObject:[NSArray arrayWithObjects: @"Classificacao 1",[jsonData objectForKey:@"classificacao_titulo"],@"description 1",@"0",@"data",@"test",@"0",@"close",@"1",@"2",@"",@"",@"",@"",@"",@"", nil]];
     }
     
-    //Fim Recebe    
+    //Fim Recebe
     //FIM JSON
     
     current_page = 1;
     total_page = 1;
     
     /*RXMLElement *rxml = [RXMLElement elementFromXMLData:urlData];
-    [rxml iterate:@"channel.item" with: ^(RXMLElement *sa) {
-        [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[sa child:@"title"]],[NSString stringWithFormat:@"%@",[sa child:@"description"]],@"0",[NSString stringWithFormat:@"%@",[sa child:@"link"]],[NSString stringWithFormat:@"%@",[sa child:@"pubDate"]],@"0",@"close",@"1",[NSString stringWithFormat:@"%@",[sa child:@"link"]],@"",@"",@"",@"",@"",@"", nil]];
-    }];*/
+     [rxml iterate:@"channel.item" with: ^(RXMLElement *sa) {
+     [recentPost addObject:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",@"0"],[NSString stringWithFormat:@"%@",[sa child:@"title"]],[NSString stringWithFormat:@"%@",[sa child:@"description"]],@"0",[NSString stringWithFormat:@"%@",[sa child:@"link"]],[NSString stringWithFormat:@"%@",[sa child:@"pubDate"]],@"0",@"close",@"1",[NSString stringWithFormat:@"%@",[sa child:@"link"]],@"",@"",@"",@"",@"",@"", nil]];
+     }];*/
     
     NSArray *classificacao_nome = [jsonData valueForKey:@"classificacao_nome"];
     
@@ -565,8 +590,8 @@ static NSString *url = @"http://scrollblog.practison.com";
     NSArray *titulo_clipping = [jsonData valueForKey:@"titulo"];
     NSArray *cmp_veiculo_nome = [jsonData valueForKey:@"cmp_veiculo_nome"];
     NSArray *data_publicacao = [jsonData valueForKey:@"data_publicacao"];
-
-
+    
+    
     
     //int size = [idArray count];
     //NSLog(@"there are %d objects in the array", size);
@@ -580,7 +605,7 @@ static NSString *url = @"http://scrollblog.practison.com";
         NSString * str_nome_classificacao = classificacao_nome[i];
         if([control_cabecalho_classificacao isEqualToString: str_nome_classificacao])
         {
-             cabecalho_classificacao = @"";
+            cabecalho_classificacao = @"";
         }
         else
         {
@@ -594,6 +619,7 @@ static NSString *url = @"http://scrollblog.practison.com";
     
     [self performSelectorOnMainThread:@selector(refreswe) withObject:nil waitUntilDone:NO];
 }
+
 
 -(void)getRSSFeed:(NSArray*)arg{
     

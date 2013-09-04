@@ -9,8 +9,6 @@
     UIBarButtonItem *postBtn;
     NSMutableArray *tempStringArray;
     sqlite3 *db;
-    IBOutlet UISwitch *lembrarSenha;
-    IBOutlet UISwitch *switchLembraSenha;
 }
 //- (NSMutableArray *) getMyWines;
 
@@ -22,7 +20,7 @@
 @property (nonatomic, retain) NSString *editedFieldKey;
 @property(weak, nonatomic) IBOutlet UIButton *removeAds;
 @property(weak, nonatomic) IBOutlet UIButton *subscribe;
-//@property(weak, nonatomic) IBOutlet UISwitch *switchLembraSenha;
+@property(weak, nonatomic) IBOutlet UISwitch *Switch;
 
 //-(void)getSaveArray;
 -(IBAction)save:(id)sender;

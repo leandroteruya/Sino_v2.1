@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-//#import "iPhoneLoginController.h"
+#import "iPhoneLoginController.h"
 @class MGScrollView,PhotoBox,MapViewController,mapViewViewController;
 @interface ViewController : UIViewController<UIScrollViewDelegate>
 {
