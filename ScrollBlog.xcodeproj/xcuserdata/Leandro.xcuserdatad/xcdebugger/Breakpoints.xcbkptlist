@@ -30,15 +30,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ScrollBlog/ViewController.m"
-         timestampString = "399826342.294213"
+         timestampString = "399927407.345023"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1371"
-         endingLineNumber = "1371"
+         startingLineNumber = "1299"
+         endingLineNumber = "1299"
          landmarkName = "-dropViewDidBeginRefreshing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,12 +47,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ScrollBlog/ViewController.m"
-         timestampString = "399903053.955646"
+         timestampString = "399929767.876819"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1586"
-         endingLineNumber = "1586"
+         startingLineNumber = "1514"
+         endingLineNumber = "1514"
          landmarkName = "-MostraDateTipo"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ScrollBlog/ViewController.m"
+         timestampString = "399927407.345023"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1112"
+         endingLineNumber = "1112"
+         landmarkName = "-goToDetalheClippingViewController:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ScrollBlog/ViewController.m"
+         timestampString = "399927407.345023"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1113"
+         endingLineNumber = "1113"
+         landmarkName = "-goToDetalheClippingViewController:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
