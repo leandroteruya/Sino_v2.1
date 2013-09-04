@@ -155,15 +155,7 @@
 		9FE7F45E16B314A100985775 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45C16B314A100985775 /* logo@2x.png */; };
 		9FE7F45F16B314A100985775 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F45D16B314A100985775 /* logo.png */; };
 		B56F93FA17C6362A0084B31F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B56F93F917C6362A0084B31F /* libsqlite3.0.dylib */; };
-<<<<<<< HEAD
-<<<<<<< HEAD
 		B5E1563217D4F1E1001BB8BF /* iPhoneLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5E1563117D4F1E1001BB8BF /* iPhoneLoginController.xib */; };
-=======
-		B5C7F0EE17D6266E00F5D3F0 /* iPhoneLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDAFD917D610A5009A1064 /* iPhoneLoginController.m */; };
->>>>>>> 0de115feddf21ec7c59e26015f6f9f780709cac2
-=======
-		B5C7F0EE17D6266E00F5D3F0 /* iPhoneLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDAFD917D610A5009A1064 /* iPhoneLoginController.m */; };
->>>>>>> 0de115feddf21ec7c59e26015f6f9f780709cac2
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1121,15 +1113,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-<<<<<<< HEAD
 				9C62EBE117D63D970078FE8E /* iPhoneLoginController.m in Sources */,
-=======
-				B5C7F0EE17D6266E00F5D3F0 /* iPhoneLoginController.m in Sources */,
->>>>>>> 0de115feddf21ec7c59e26015f6f9f780709cac2
-=======
-				B5C7F0EE17D6266E00F5D3F0 /* iPhoneLoginController.m in Sources */,
->>>>>>> 0de115feddf21ec7c59e26015f6f9f780709cac2
 				9F63A7011688D2AC00BA7263 /* main.m in Sources */,
 				9F63A73C1688D32000BA7263 /* NSAttributedString+MGTrim.m in Sources */,
 				9F63A73D1688D32000BA7263 /* NSObject+MGEvents.m in Sources */,
